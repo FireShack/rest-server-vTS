@@ -15,6 +15,7 @@ initDB();
 
 // Middlewares
 app.use(cors());
+app.use(express.static("public"));
 app.use(json());
 app.use("/api", users);
 app.use("/api/auth", auth);
