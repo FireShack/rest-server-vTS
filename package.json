@@ -5,7 +5,9 @@
   "main": "server.ts",
   "scripts": {
     "test": "nodemon dist/server.js",
-    "start": "node dist/server.js"
+    "postinstall": "tsc",
+    "start": "node dist/server.js",
+    "watch-ts": "tsc -w"
   },
   "keywords": [],
   "author": "",
