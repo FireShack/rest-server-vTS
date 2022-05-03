@@ -2,7 +2,7 @@
   "name": "rest-ts-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "test": "nodemon dist/server.js",
     "start": "node dist/server.js"
@@ -21,6 +21,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
     "express-validator": "^6.14.0",
+    "mariadb": "^3.0.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.0"
   }
