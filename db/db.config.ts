@@ -5,16 +5,16 @@ import { Sequelize } from "sequelize";
 // const db_password = process.env.DB_PASSWORD;
 // const db_host = process.env.DB_PASSWORD;
 
-const sequelize = new Sequelize("fires-server-ts", "root", "", {
+export const sequelizeDB = new Sequelize("fires-server-ts", "root", "", {
   host: "localhost",
   dialect: "mariadb",
 });
 
 export const initDB = async () => {
   try {
-    await sequelize.authenticate();
-    console.log("DB online");
+    await sequelizeDB.authenticate();
+    console.log("All ok");
   } catch (error) {
-      console.log("There was an error", error)
+    console.log("There was an error", error);
   }
 };
