@@ -17,7 +17,7 @@ initDB();
 app.use(cors());
 app.use(json());
 app.use("/api", users);
-app.use("/api", auth);
+app.use("/api/auth", auth);
 
 // Run server
 app.listen(port, () =>

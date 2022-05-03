@@ -21,11 +21,11 @@ users.get(
 users.post(
   "/users/add",
   [
-    check("name", "You must a name").not().isEmpty(),
-    check("email", "You must a valid email").isEmail(),
+    check("name", "You must provide a name").not().isEmpty(),
+    check("email", "You must provide a valid email").isEmail(),
     check("email").custom(existsEmail),
-    check("password", "You must a valid password").not().isEmpty(),
-    check("password", "You must a longer password").isLength({ min: 8 }),
+    check("password", "You must provide a valid password").not().isEmpty(),
+    check("password", "You must provide a longer password").isLength({ min: 8 }),
     validateFields,
   ],
   handlePostUsers

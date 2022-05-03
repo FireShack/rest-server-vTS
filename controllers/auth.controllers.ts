@@ -17,6 +17,5 @@ export const handleLogin = async (req: Request, res: Response) => {
     res.status(200).json({ msg: `User ${email} loggined successfully` });
   } catch (error) {
     res.status(400).json({ msg: "There was an error", error });
-    console.log(error);
   }
 };
