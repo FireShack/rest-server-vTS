@@ -18,9 +18,9 @@ export const handleGetUser = (req: Request, res: Response) => {
 };
 
 export const handlePostUsers = (req: Request, res: Response) => {
-  const { name, mail } = req.body;
+  const { name, email, password } = req.body;
   try {
-    res.status(200).json({ msg: "User added", user: { name, mail } });
+    res.status(200).json({ msg: "User added", user: { name, email } });
   } catch (error) {
     res.status(400).json({ msg: "There was an error", error });
   }
