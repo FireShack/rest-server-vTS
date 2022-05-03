@@ -2,6 +2,7 @@ import express, { json } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { users } from "./routes/users.route";
+import { auth } from "./routes/auth.route";
 import { initDB } from "./db/db.config";
 
 // Basic configs
@@ -16,6 +17,7 @@ initDB();
 app.use(cors());
 app.use(json());
 app.use("/api", users);
+app.use("/api", auth);
 
 // Run server
 app.listen(port, () =>

@@ -7,6 +7,7 @@ import {
   handlePostUsers,
   handlePutUsers,
 } from "../controllers/users.controllers";
+import { existsEmail, existsUser } from "../middlewares/db.validator";
 import { validateFields } from "../middlewares/validate.fields";
 
 export const users = express.Router();
@@ -22,6 +23,7 @@ users.post(
   [
     check("name", "You must a name").not().isEmpty(),
     check("email", "You must a valid email").isEmail(),
+    check("email").custom(existsEmail),
     check("password", "You must a valid password").not().isEmpty(),
     check("password", "You must a longer password").isLength({ min: 8 }),
     validateFields,
@@ -32,8 +34,10 @@ users.put(
   "/users/modify/:id",
   [
     check("id").not().isEmpty(),
-    check("name", "You must a name").not().isEmpty(),
-    check("email", "You must a valid email").isEmail(),
+    check("id", "Invalid ID, too short").isLength({ min: 36 }),
+    check("id").custom(existsUser),
+    check("name", "You must provide a valid name").not().isEmpty(),
+    check("email", "You must provide a valid email").isEmail(),
     validateFields,
   ],
   handlePutUsers
