@@ -1,5 +1,4 @@
-import { Response } from "express";
-import { Request } from "express-validator/src/base";
+import { Request, Response } from "express";
 import { User } from "../models/user.model";
 
 export const handleLogin = async (req: Request, res: Response) => {
@@ -14,7 +13,7 @@ export const handleLogin = async (req: Request, res: Response) => {
       return res.status(200).json({ msg: "Please, check your password" });
     }
 
-    res.status(200).json({ msg: `User ${email} loggined successfully` });
+    return res.status(200).json({ msg: `User ${email} loggined successfully` });
   } catch (error) {
     res.status(400).json({ msg: "There was an error", error });
   }

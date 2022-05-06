@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize";
 
-// const db_name = process.env.DB_NAME;
-// const db_username = process.env.DB_USERNAME;
-// const db_password = process.env.DB_PASSWORD;
-// const db_host = process.env.DB_PASSWORD;
+const db_name = process.env.DB_NAME as string;
+const db_username = process.env.DB_USERNAME as string;
+const db_password = process.env.DB_PASSWORD as string;
+const db_host = process.env.DB_PASSWORD as string;
 
-export const sequelizeDB = new Sequelize("fires-server-ts", "root", "", {
+export const sequelizeDB = new Sequelize(db_name, "root", "", {
   host: "localhost",
   dialect: "mariadb",
 });
